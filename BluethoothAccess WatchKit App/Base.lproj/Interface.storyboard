@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17506" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17500"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="BluethoothAccess_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="BluethoothAccess_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="BluethoothAccess_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--BT Settings-->
+        <scene sceneID="7nH-pd-jvN">
+            <objects>
+                <controller identifier="btSettingsInterfaceController" title="Scan Devices" spacing="2" id="Ica-39-JpF" userLabel="BT Settings" customClass="BTScanForDevicesInterfaceController" customModule="Plan2PEAK_AW_Extension">
+                    <items>
+                        <label width="1" height="0.10000000000000001" alignment="center" text="Label" textAlignment="center" minimumScaleFactor="0.5" id="FAt-Ap-ku7" userLabel="statusLabel"/>
+                        <separator alignment="left" id="A86-u9-eFs"/>
+                        <label width="1" height="0.10000000000000001" alignment="center" text="Connected Devices" textAlignment="center" minimumScaleFactor="0.5" id="sm8-uV-yj2" userLabel="connectedDevicesLabel"/>
+                        <table alignment="left" id="6am-aF-pjv" userLabel="connectedDevices">
+                            <items>
+                                <tableRow identifier="connectedDeviceTableRowController" id="cKr-J7-hnU" userLabel="connectedDevicesTableRowController" customClass="connectedDeviceListEntry" customModule="Plan2PEAK_AW_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="7ei-C7-ZXg">
+                                        <items>
+                                            <imageView width="0.17000000000000001" height="0.69999999999999996" alignment="left" verticalAlignment="center" id="rLV-kb-CDc" userLabel="statusImage"/>
+                                            <label width="0.82999999999999996" height="1" alignment="center" text="Label" textAlignment="center" numberOfLines="2" id="2cL-VB-HML"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="deviceName" destination="2cL-VB-HML" id="3Yx-f8-Pqw"/>
+                                        <outlet property="statusImage" destination="rLV-kb-CDc" id="NnI-aR-d8Y"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <separator alignment="left" id="TFv-MF-bdZ"/>
+                        <label width="1" height="0.10000000000000001" alignment="center" text="Available Devices" textAlignment="center" minimumScaleFactor="0.5" id="QcV-8k-on2" userLabel="availableDevicesLabel"/>
+                        <table alignment="left" id="QQc-Hm-d6d" userLabel="availableDevices">
+                            <items>
+                                <tableRow identifier="availableDeviceTableRowController" id="EtJ-Su-1XY" userLabel="availableDevicesTableRowController" customClass="availableDeviceListEntry" customModule="Plan2PEAK_AW_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="gbK-Q5-DGT">
+                                        <items>
+                                            <imageView width="0.17000000000000001" height="0.69999999999999996" alignment="left" verticalAlignment="center" id="k3w-oi-rQ9" userLabel="statusImage"/>
+                                            <label width="0.82999999999999996" height="1" alignment="center" text="Label" textAlignment="center" numberOfLines="2" id="JxE-e4-f03"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="deviceName" destination="JxE-e4-f03" id="Sl3-hD-74x"/>
+                                        <outlet property="statusImage" destination="k3w-oi-rQ9" id="jDk-6O-Sge"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="availableDeviceLabel" destination="QcV-8k-on2" id="QPe-Gm-Z1i"/>
+                        <outlet property="availableDevices" destination="QQc-Hm-d6d" id="5K5-ZK-JU2"/>
+                        <outlet property="connectedDeviceLabel" destination="sm8-uV-yj2" id="jC5-fj-pTp"/>
+                        <outlet property="connectedDevicesTable" destination="6am-aF-pjv" id="teX-ZS-jl2"/>
+                        <outlet property="statusLabel" destination="FAt-Ap-ku7" id="1UR-iX-vCk"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="174" y="1011"/>
+        </scene>
+    </scenes>
+</document>
